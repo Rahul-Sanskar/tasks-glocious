@@ -278,6 +278,14 @@ class RouteProvider implements ServiceProviderInterface
 
             // Cronjob
             $container['route']->addRoute('cronjob', 'CronjobController', 'run');
+
+            // Custom Analytics Dashboard
+            $container['route']->addRoute('analytics-dashboard', 'CustomDashboardController', 'show');
+            $container['route']->addRoute('analytics-dashboard/admin', 'CustomDashboardController', 'adminShow');
+            $container['route']->addRoute('analytics-dashboard/employee/:user_id', 'CustomDashboardController', 'employeeDetail');
+            $container['route']->addRoute('analytics-dashboard/data/user', 'CustomDashboardController', 'userData');
+            $container['route']->addRoute('analytics-dashboard/data/admin', 'CustomDashboardController', 'adminData');
+            $container['route']->addRoute('analytics-dashboard/data/employee/:user_id', 'CustomDashboardController', 'employeeData');
         }
 
         return $container;

@@ -6,6 +6,14 @@
             <?= $this->url->icon('tachometer', t('My dashboard'), 'DashboardController', 'show', array('user_id' => $this->user->getId())) ?>
         </li>
         <li>
+            <?= $this->url->icon('bar-chart', t('My Analytics'), 'CustomDashboardController', 'show') ?>
+        </li>
+        <?php if ($this->user->isAdmin()): ?>
+        <li>
+            <?= $this->url->icon('line-chart', t('Admin Analytics'), 'CustomDashboardController', 'adminShow') ?>
+        </li>
+        <?php endif ?>
+        <li>
             <?= $this->url->icon('home', t('My profile'), 'UserViewController', 'show', array('user_id' => $this->user->getId())) ?>
         </li>
         <li>
